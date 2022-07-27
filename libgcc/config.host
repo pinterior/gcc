@@ -1534,6 +1534,9 @@ nvptx-*)
 	tmake_file="$tmake_file nvptx/t-nvptx"
 	extra_parts="crt0.o"
 	;;
+i[34567]86-*-run386)
+	extra_parts="$extra_parts crtbeginT.o crtend.o crti.o crtn.o"
+	;;
 *)
 	echo "*** Configuration ${host} not supported" 1>&2
 	exit 1
