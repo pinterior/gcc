@@ -1535,6 +1535,7 @@ nvptx-*)
 	extra_parts="crt0.o"
 	;;
 i[34567]86-*-run386)
+	tmake_file="$tmake_file i386/t-crtstuff t-softfp-sfdftf i386/32/t-softfp i386/t-softfp t-softfp"
 	extra_parts="$extra_parts crtbeginT.o crtend.o crti.o crtn.o"
 	;;
 *)
@@ -1570,6 +1571,9 @@ esac
 case ${host} in
 i[34567]86-*-elfiamcu | i[34567]86-*-rtems*)
 	# These use soft-fp for SFmode and DFmode, not just TFmode.
+	;;
+i[34567]86-*-run386)
+	# This use soft-fp for SFmode and DFmode, not just TFmode.
 	;;
 i[34567]86-*-* | x86_64-*-*)
   	tmake_file="${tmake_file} t-softfp-tf"
